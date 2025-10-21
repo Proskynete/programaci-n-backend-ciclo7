@@ -1,8 +1,8 @@
 {
   "openapi": "3.0.0",
   "info": {
-    "title": "Node API Skeleton",
-    "description": "Node API Skeleton",
+    "title": "TODO API",
+    "description": "API for managing TODO items",
     "version": "0.0.1"
   },
   "servers": [
@@ -11,30 +11,182 @@
     }
   ],
   "paths": {
-    "/api/v1/hello": {
+    "/item": {
       "get": {
-        "tags": ["Example"],
+        "tags": [
+          "Item"
+        ],
+        "summary": "Get all items",
         "responses": {
           "200": {
-            "description": "First dummy route - Route example",
+            "description": "A list of items",
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "message": {
-                      "type": "string",
-                      "example": "Hello World!"
-                    }
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Item"
                   }
                 }
               }
             }
           }
         }
+      },
+      "post": {
+        "tags": [
+          "Item"
+        ],
+        "summary": "Create a new item",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Item"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "The created item",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Item"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/item/{id}": {
+      "get": {
+        "tags": [
+          "Item"
+        ],
+        "summary": "Get an item by ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "The item ID",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The item",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Item"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Item not found"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Item"
+        ],
+        "summary": "Update an item",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "The item ID",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Item"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The updated item",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Item"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Item not found"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Item"
+        ],
+        "summary": "Delete an item",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "The item ID",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Item deleted"
+          },
+          "404": {
+            "description": "Item not found"
+          }
+        }
       }
     }
   },
-  "components": {},
+  "components": {
+    "schemas": {
+      "Item": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "price": {
+            "type": "number"
+          },
+          "category": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
   "tags": []
 }

@@ -21,7 +21,7 @@ const itemService = new ItemService();
  *               items:
  *                 $ref: '#/components/schemas/Item'
  */
-const GetAllItems = async (req: Request, res: Response) => {
+const GetAllItems = async (_: Request, res: Response) => {
   const items = await itemService.getAllItems();
   res.json(items);
 };
