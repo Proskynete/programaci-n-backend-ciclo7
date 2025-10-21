@@ -1,74 +1,50 @@
 import { Request, Response } from "express";
 
-import { EStatusCode } from "../../models/status_code";
 import { ItemService } from "../../services/item";
 
-export const GetAllItemsController = async (_: Request, res: Response) => {
-  try {
-    const response = await ItemService.getAllItems();
-    res.status(EStatusCode.OK).json(response);
-  } catch (error) {
-    res.status(EStatusCode.INTERNAL_SERVER_ERROR).json({ error });
+const itemService = new ItemService();
+
+const GetAllItems = async (req: Request, res: Response) => {
+  const items = await itemService.getAllItems();
+  res.json(items);
+};
+
+const GetItemById = async (req: Request, res: Response) => {
+  const item = await itemService.getItemById(req.params.id);
+  if (item) {
+    res.json(item);
+  } else {
+    res.status(404).send("Item not found");
   }
 };
 
-export const GetItemByIdController = async (req: Request, res: Response) => {
-  try {
-    const { id } = req.params;
-    const response = await ItemService.getItemById(id);
-    if (response) {
-      res.status(EStatusCode.OK).json(response);
-    } else {
-      res.status(EStatusCode.NOT_FOUND).json({ message: "Item not found" });
-    }
-  } catch (error) {
-    res.status(EStatusCode.INTERNAL_SERVER_ERROR).json({ error });
+const CreateItem = async (req: Request, res: Response) => {
+  const newItem = await itemService.createItem(req.body);
+  res.status(201).json(newItem);
+};
+
+const UpdateItem = async (req: Request, res: Response) => {
+  const updatedItem = await itemService.updateItem(req.params.id, req.body);
+  if (updatedItem) {
+    res.json(updatedItem);
+  } else {
+    res.status(404).send("Item not found");
   }
 };
 
-export const CreateItemController = async (req: Request, res: Response) => {
-  try {
-    const itemData = req.body;
-    const response = await ItemService.createItem(itemData);
-    res.status(EStatusCode.CREATED).json(response);
-  } catch (error) {
-    res.status(EStatusCode.INTERNAL_SERVER_ERROR).json({ error });
-  }
-};
-
-export const UpdateItemController = async (req: Request, res: Response) => {
-  try {
-    const { id } = req.params;
-    const itemData = req.body;
-    const response = await ItemService.updateItem(id, itemData);
-    if (response) {
-      res.status(EStatusCode.OK).json(response);
-    } else {
-      res.status(EStatusCode.NOT_FOUND).json({ message: "Item not found" });
-    }
-  } catch (error) {
-    res.status(EStatusCode.INTERNAL_SERVER_ERROR).json({ error });
-  }
-};
-
-export const DeleteItemController = async (req: Request, res: Response) => {
-  try {
-    const { id } = req.params;
-    const success = await ItemService.deleteItem(id);
-    if (success) {
-      res.status(EStatusCode.NO_CONTENT).send();
-    } else {
-      res.status(EStatusCode.NOT_FOUND).json({ message: "Item not found" });
-    }
-  } catch (error) {
-    res.status(EStatusCode.INTERNAL_SERVER_ERROR).json({ error });
+const DeleteItem = async (req: Request, res: Response) => {
+  const success = await itemService.deleteItem(req.params.id);
+  if (success) {
+    res.status(204).send();
+  } else {
+    res.status(404).send("Item not found");
   }
 };
 
 export const ItemController = {
-  GetAllItemsController,
-  GetItemByIdController,
-  CreateItemController,
-  UpdateItemController,
-  DeleteItemController,
+  GetAllItems,
+  GetItemById,
+  CreateItem,
+  UpdateItem,
+  DeleteItem,
 };
