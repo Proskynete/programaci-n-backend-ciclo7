@@ -126,6 +126,51 @@ const UpdateItem = async (req: Request, res: Response) => {
 
 /**
  * @openapi
+ * /item/{id}/toggle:
+ *   patch:
+ *     tags:
+ *       - Item
+ *     summary: Toggle item completion status
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         schema:
+ *           type: string
+ *         required: true
+ *         description: The item ID
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               isComplete:
+ *                 type: boolean
+ *     responses:
+ *       200:
+ *         description: The updated item
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Item'
+ *       404:
+ *         description: Item not found
+ */
+const ToggleItemCompletion = async (req: Request, res: Response) => {
+  const updatedItem = await itemService.toggleItemCompletion(
+    req.params.id,
+    req.body.isComplete
+  );
+  if (updatedItem) {
+    res.json(updatedItem);
+  } else {
+    res.status(404).send("Item not found");
+  }
+};
+
+/**
+ * @openapi
  * /item/{id}:
  *   delete:
  *     tags:
@@ -158,5 +203,6 @@ export const ItemController = {
   GetItemById,
   CreateItem,
   UpdateItem,
+  ToggleItemCompletion,
   DeleteItem,
 };

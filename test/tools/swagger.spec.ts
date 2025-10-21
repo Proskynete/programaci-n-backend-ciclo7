@@ -8,7 +8,6 @@ describe("/docs", () => {
   describe("GET:", () => {
     test("should return 301 OK", async () => {
       const response = await request(app).get("/docs");
-
       expect(response.statusCode).toEqual(EStatusCode.MOVED_PERMANENTLY);
     });
   });

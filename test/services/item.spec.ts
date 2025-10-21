@@ -33,6 +33,7 @@ describe("ItemService", () => {
           description: "Description 1",
           price: 10,
           category: "Category 1",
+          isComplete: false,
         },
       ];
       (readItems as jest.Mock).mockResolvedValue(mockItems);
@@ -53,6 +54,7 @@ describe("ItemService", () => {
           description: "Description 1",
           price: 10,
           category: "Category 1",
+          isComplete: false,
         },
       ];
       (readItems as jest.Mock).mockResolvedValue(mockItems);
@@ -71,6 +73,7 @@ describe("ItemService", () => {
           description: "Description 1",
           price: 10,
           category: "Category 1",
+          isComplete: false,
         },
       ];
       (readItems as jest.Mock).mockResolvedValue(mockItems);
@@ -89,6 +92,7 @@ describe("ItemService", () => {
         description: "Description 1",
         price: 10,
         category: "Category 1",
+        isComplete: false,
       };
       const mockItems: Item[] = [];
       const newId = "new-id";
@@ -114,6 +118,7 @@ describe("ItemService", () => {
           description: "Description 1",
           price: 10,
           category: "Category 1",
+          isComplete: false,
         },
       ];
       const updatedItemData: Partial<Item> = { title: "Updated Item 1" };
@@ -138,6 +143,7 @@ describe("ItemService", () => {
           description: "Description 1",
           price: 10,
           category: "Category 1",
+          isComplete: false,
         },
       ];
       (readItems as jest.Mock).mockResolvedValue(mockItems);
@@ -161,6 +167,7 @@ describe("ItemService", () => {
           description: "Description 1",
           price: 10,
           category: "Category 1",
+          isComplete: false,
         },
       ];
       (readItems as jest.Mock).mockResolvedValue(mockItems);
@@ -182,6 +189,7 @@ describe("ItemService", () => {
           description: "Description 1",
           price: 10,
           category: "Category 1",
+          isComplete: false,
         },
       ];
       (readItems as jest.Mock).mockResolvedValue(mockItems);

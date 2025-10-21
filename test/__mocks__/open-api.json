@@ -13,9 +13,7 @@
   "paths": {
     "/item": {
       "get": {
-        "tags": [
-          "Item"
-        ],
+        "tags": ["Item"],
         "summary": "Get all items",
         "responses": {
           "200": {
@@ -34,9 +32,7 @@
         }
       },
       "post": {
-        "tags": [
-          "Item"
-        ],
+        "tags": ["Item"],
         "summary": "Create a new item",
         "requestBody": {
           "required": true,
@@ -64,9 +60,7 @@
     },
     "/item/{id}": {
       "get": {
-        "tags": [
-          "Item"
-        ],
+        "tags": ["Item"],
         "summary": "Get an item by ID",
         "parameters": [
           {
@@ -96,9 +90,7 @@
         }
       },
       "put": {
-        "tags": [
-          "Item"
-        ],
+        "tags": ["Item"],
         "summary": "Update an item",
         "parameters": [
           {
@@ -138,9 +130,7 @@
         }
       },
       "delete": {
-        "tags": [
-          "Item"
-        ],
+        "tags": ["Item"],
         "summary": "Delete an item",
         "parameters": [
           {
@@ -156,6 +146,53 @@
         "responses": {
           "204": {
             "description": "Item deleted"
+          },
+          "404": {
+            "description": "Item not found"
+          }
+        }
+      }
+    },
+    "/item/{id}/toggle": {
+      "patch": {
+        "tags": ["Item"],
+        "summary": "Toggle item completion status",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "The item ID",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "isComplete": {
+                    "type": "boolean"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The updated item",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Item"
+                }
+              }
+            }
           },
           "404": {
             "description": "Item not found"
@@ -183,6 +220,9 @@
           },
           "category": {
             "type": "string"
+          },
+          "isComplete": {
+            "type": "boolean"
           }
         }
       }

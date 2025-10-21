@@ -23,6 +23,8 @@ export interface ItemRepository {
  *      type: string
  *     description:
  *      type: string
+ *     isComplete:
+ *      type: boolean
  */
 export interface Item {
   id: string;
@@ -30,4 +32,5 @@ export interface Item {
   price: number;
   category: string;
   description: string;
+  isComplete: boolean;
 }

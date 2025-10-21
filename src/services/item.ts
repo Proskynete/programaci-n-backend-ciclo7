@@ -13,9 +13,9 @@ export class ItemService implements ItemRepository {
     return items.find((item) => item.id === id) || null;
   }
 
-  async createItem(item: Omit<Item, "id">): Promise<Item> {
+  async createItem(item: Omit<Item, "id" | "isComplete">): Promise<Item> {
     const items = await readItems();
-    const newItem: Item = { ...item, id: randomUUID() };
+    const newItem: Item = { ...item, id: randomUUID(), isComplete: false };
     items.push(newItem);
     await writeItems(items);
     return newItem;
@@ -28,6 +28,20 @@ export class ItemService implements ItemRepository {
       return null;
     }
     items[index] = { ...items[index], ...item };
+    await writeItems(items);
+    return items[index];
+  }
+
+  async toggleItemCompletion(
+    id: string,
+    isComplete: boolean
+  ): Promise<Item | null> {
+    const items = await readItems();
+    const index = items.findIndex((i) => i.id === id);
+    if (index === -1) {
+      return null;
+    }
+    items[index].isComplete = isComplete;
     await writeItems(items);
     return items[index];
   }
