@@ -1,7 +1,7 @@
 import { randomUUID } from "crypto";
 
 import { Item, ItemRepository } from "../models/business/item";
-import { readItems, writeItems } from "../utils/read-db";
+import { readItems, writeItems } from "../utils/manage-db";
 
 export class ItemService implements ItemRepository {
   async getAllItems(): Promise<Item[]> {
