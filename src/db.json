@@ -1,1 +1,9 @@
-[]
+[
+  {
+    "title": "Some title",
+    "price": 9999,
+    "category": "house",
+    "description": "Lorem ipsum",
+    "id": "04fdf531-13e5-461a-b189-aa3dded7805c"
+  }
+]
