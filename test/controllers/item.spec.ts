@@ -12,6 +12,7 @@ jest.mock("../../src/services/item", () => {
     createItem: jest.fn(),
     updateItem: jest.fn(),
     deleteItem: jest.fn(),
+    toggleItemCompletion: jest.fn(),
   };
   return {
     ItemService: jest.fn(() => mItemService),
@@ -90,6 +91,25 @@ describe("/api/v1/item", () => {
     test("should return 404 Not Found", async () => {
       itemService.deleteItem.mockResolvedValue(false);
       const response = await request(app).delete(`${url}/1`);
+      expect(response.statusCode).toEqual(EStatusCode.NOT_FOUND);
+    });
+  });
+
+  describe("PATCH: /:id/toggle", () => {
+    test("should return 200 OK", async () => {
+      itemService.toggleItemCompletion.mockResolvedValue(mockData[0]);
+      const response = await request(app)
+        .patch(`${url}/1/toggle`)
+        .send({ isComplete: true });
+      expect(response.statusCode).toEqual(EStatusCode.OK);
+      expect(response.body).toEqual(mockData[0]);
+    });
+
+    test("should return 404 Not Found", async () => {
+      itemService.toggleItemCompletion.mockResolvedValue(null);
+      const response = await request(app)
+        .patch(`${url}/1/toggle`)
+        .send({ isComplete: true });
       expect(response.statusCode).toEqual(EStatusCode.NOT_FOUND);
     });
   });

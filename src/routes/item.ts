@@ -9,5 +9,6 @@ router.get("/:id", ItemController.GetItemById);
 router.post("/", ItemController.CreateItem);
 router.put("/:id", ItemController.UpdateItem);
 router.delete("/:id", ItemController.DeleteItem);
+router.patch("/:id/toggle", ItemController.ToggleItemCompletion);
 
 export { router };

@@ -201,4 +201,50 @@ describe("ItemService", () => {
       expect(writeItems).not.toHaveBeenCalled();
     });
   });
+
+  describe("toggleItemCompletion", () => {
+    it("should toggle an item's completion status", async () => {
+      const mockItems: Item[] = [
+        {
+          id: "1",
+          title: "Item 1",
+          description: "Description 1",
+          price: 10,
+          category: "Category 1",
+          isComplete: false,
+        },
+      ];
+      (readItems as jest.Mock).mockResolvedValue(mockItems);
+      (writeItems as jest.Mock).mockResolvedValue(undefined);
+
+      const updatedItem = await itemService.toggleItemCompletion("1", true);
+
+      expect(updatedItem).toEqual({ ...mockItems[0], isComplete: true });
+      expect(readItems).toHaveBeenCalledTimes(1);
+      expect(writeItems).toHaveBeenCalledTimes(1);
+      expect(writeItems).toHaveBeenCalledWith([
+        { ...mockItems[0], isComplete: true },
+      ]);
+    });
+
+    it("should return null if item to toggle is not found", async () => {
+      const mockItems: Item[] = [
+        {
+          id: "1",
+          title: "Item 1",
+          description: "Description 1",
+          price: 10,
+          category: "Category 1",
+          isComplete: false,
+        },
+      ];
+      (readItems as jest.Mock).mockResolvedValue(mockItems);
+
+      const updatedItem = await itemService.toggleItemCompletion("2", true);
+
+      expect(updatedItem).toBeNull();
+      expect(readItems).toHaveBeenCalledTimes(1);
+      expect(writeItems).not.toHaveBeenCalled();
+    });
+  });
 });
