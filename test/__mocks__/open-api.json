@@ -157,6 +157,7 @@
       "patch": {
         "tags": ["Item"],
         "summary": "Toggle item completion status",
+        "description": "Toggle the completion status of an item. Use the query parameter 'isComplete' to set the desired status.",
         "parameters": [
           {
             "name": "id",
@@ -166,23 +167,17 @@
             "schema": {
               "type": "string"
             }
-          }
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "isComplete": {
-                    "type": "boolean"
-                  }
-                }
-              }
+          },
+          {
+            "name": "isComplete",
+            "in": "query",
+            "required": true,
+            "description": "The completion status to set (true or false)",
+            "schema": {
+              "type": "boolean"
             }
           }
-        },
+        ],
         "responses": {
           "200": {
             "description": "The updated item",

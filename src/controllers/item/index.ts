@@ -131,6 +131,7 @@ const UpdateItem = async (req: Request, res: Response) => {
  *     tags:
  *       - Item
  *     summary: Toggle item completion status
+ *     description: Toggle the completion status of an item. Use the query parameter 'isComplete' to set the desired status.
  *     parameters:
  *       - in: path
  *         name: id
@@ -138,15 +139,12 @@ const UpdateItem = async (req: Request, res: Response) => {
  *           type: string
  *         required: true
  *         description: The item ID
- *     requestBody:
- *       required: true
- *       content:
- *         application/json:
- *           schema:
- *             type: object
- *             properties:
- *               isComplete:
- *                 type: boolean
+ *       - in: query
+ *         name: isComplete
+ *         schema:
+ *           type: boolean
+ *         required: true
+ *         description: The completion status to set (true or false)
  *     responses:
  *       200:
  *         description: The updated item
@@ -160,7 +158,7 @@ const UpdateItem = async (req: Request, res: Response) => {
 const ToggleItemCompletion = async (req: Request, res: Response) => {
   const updatedItem = await itemService.toggleItemCompletion(
     req.params.id,
-    req.body.isComplete
+    req.query.isComplete === "true"
   );
   if (updatedItem) {
     res.json(updatedItem);

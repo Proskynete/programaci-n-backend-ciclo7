@@ -4,6 +4,15 @@
     "price": 9999,
     "category": "house",
     "description": "Lorem ipsum",
-    "id": "04fdf531-13e5-461a-b189-aa3dded7805c"
+    "id": "04fdf531-13e5-461a-b189-aa3dded7805c",
+    "isComplete": false
+  },
+  {
+    "title": "Some title",
+    "price": 1234,
+    "category": "backend",
+    "description": "Lorem ipsum",
+    "id": "d8e89dc3-8f64-4a60-ad67-886ef45766da",
+    "isComplete": false
   }
 ]
