@@ -104,7 +104,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"title\": \"Some title\",\n    \"price\": 1234,\n    \"category\": \"house\",\n    \"description\": \"Lorem ipsum\"\n}",
+					"raw": "{\n    \"title\": \"Some title\",\n    \"price\": 1234,\n    \"category\": \"backend\",\n    \"description\": \"Lorem ipsum\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -144,6 +144,44 @@
 						"v1",
 						"item",
 						"3a0a97bb-676b-4eae-b5f1-89cbfe1997c4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Toggle is complete",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"isComplete\": true\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/item/04fdf531-13e5-461a-b189-aa3dded7805c?isComplete=true",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"item",
+						"04fdf531-13e5-461a-b189-aa3dded7805c"
+					],
+					"query": [
+						{
+							"key": "isComplete",
+							"value": "true",
+							"description": "true or false"
+						}
 					]
 				}
 			},
