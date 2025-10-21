@@ -6,7 +6,7 @@
 
 ## Status
 
-[![CI](https://img.shields.io/github/actions/workflow/status/Proskynete/node-api-skeleton/ci.yml?logo=GithubActions&logoColor=fff)](https://github.com/Proskynete/node-api-skeleton/actions/workflows/ci.yml) [![GitHub issues](https://img.shields.io/github/issues/Proskynete/node-api-skeleton)](https://github.com/Proskynete/node-api-skeleton/issues) [![GitHub forks](https://img.shields.io/github/forks/Proskynete/node-api-skeleton)](https://github.com/Proskynete/node-api-skeleton/network) [![GitHub stars](https://img.shields.io/github/stars/Proskynete/node-api-skeleton)](https://github.com/Proskynete/node-api-skeleton/stargazers) [![PRs welcome](https://img.shields.io/badge/PRs-welcome-green)](#CONTRIBUTING.md)
+[![CI](https://img.shields.io/github/actions/workflow/status/Proskynete/programaci-n-backend-ciclo7/ci.yml?logo=GithubActions&logoColor=fff)](https://github.com/Proskynete/programaci-n-backend-ciclo7/actions/workflows/ci.yml) [![GitHub issues](https://img.shields.io/github/issues/Proskynete/programaci-n-backend-ciclo7)](https://github.com/Proskynete/programaci-n-backend-ciclo7/issues) [![GitHub forks](https://img.shields.io/github/forks/Proskynete/programaci-n-backend-ciclo7)](https://github.com/Proskynete/programaci-n-backend-ciclo7/network) [![GitHub stars](https://img.shields.io/github/stars/Proskynete/programaci-n-backend-ciclo7)](https://github.com/Proskynete/programaci-n-backend-ciclo7/stargazers) [![PRs welcome](https://img.shields.io/badge/PRs-welcome-green)](#CONTRIBUTING.md)
 
 <details>
   <summary>Table of contents</summary>
