@@ -1,0 +1,153 @@
+{
+	"info": {
+		"_postman_id": "0c3bc601-bcbd-4283-bf32-64ea0e449d21",
+		"name": "Ciclo 7 - Programación backend",
+		"description": "Carpeta con la definición de todos los endpoints que se usan para usar el CRUD del proyecto",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "40091662"
+	},
+	"item": [
+		{
+			"name": "Get all Items",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/v1/item",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"item"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Item by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/v1/item/04fdf531-13e5-461a-b189-aa3dded7805c",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"item",
+						"04fdf531-13e5-461a-b189-aa3dded7805c"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Edit Item by id",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"price\": 9999\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/item/04fdf531-13e5-461a-b189-aa3dded7805c",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"item",
+						"04fdf531-13e5-461a-b189-aa3dded7805c"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create a new Item",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"Some title\",\n    \"price\": 1234,\n    \"category\": \"house\",\n    \"description\": \"Lorem ipsum\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/item",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"item"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Remove Item by Id",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/v1/item/3a0a97bb-676b-4eae-b5f1-89cbfe1997c4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"item",
+						"3a0a97bb-676b-4eae-b5f1-89cbfe1997c4"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
