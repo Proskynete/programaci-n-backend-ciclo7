@@ -1,13 +1,12 @@
 <div id="top">
-  <h1>Node API Skeleton <img src="https://cdn.iconscout.com/icon/free/png-256/typescript-1174965.png" width="25" height="25" /></h1>
+  <h1>Semana 4 - Encargo - Programación Backend <img src="https://cdn.iconscout.com/icon/free/png-256/typescript-1174965.png" width="25" height="25" /></h1>
 </div>
 
-<p>This is a repository meant to serve as a starting point if you want to start a TypeScript express API project with some common features already set up and best practices.</p>
 </div>
 
 ## Status
 
-[![Coverage Status](https://img.shields.io/coverallsCoverage/github/Proskynete/node-api-skeleton?logo=Coveralls)](https://coveralls.io/github/Proskynete/node-api-skeleton?branch=master) [![CI](https://img.shields.io/github/actions/workflow/status/Proskynete/node-api-skeleton/ci.yml?logo=GithubActions&logoColor=fff)](https://github.com/Proskynete/node-api-skeleton/actions/workflows/ci.yml) [![GitHub issues](https://img.shields.io/github/issues/Proskynete/node-api-skeleton)](https://github.com/Proskynete/node-api-skeleton/issues) [![GitHub forks](https://img.shields.io/github/forks/Proskynete/node-api-skeleton)](https://github.com/Proskynete/node-api-skeleton/network) [![GitHub stars](https://img.shields.io/github/stars/Proskynete/node-api-skeleton)](https://github.com/Proskynete/node-api-skeleton/stargazers) [![PRs welcome](https://img.shields.io/badge/PRs-welcome-green)](#CONTRIBUTING.md)
+[![CI](https://img.shields.io/github/actions/workflow/status/Proskynete/node-api-skeleton/ci.yml?logo=GithubActions&logoColor=fff)](https://github.com/Proskynete/node-api-skeleton/actions/workflows/ci.yml) [![GitHub issues](https://img.shields.io/github/issues/Proskynete/node-api-skeleton)](https://github.com/Proskynete/node-api-skeleton/issues) [![GitHub forks](https://img.shields.io/github/forks/Proskynete/node-api-skeleton)](https://github.com/Proskynete/node-api-skeleton/network) [![GitHub stars](https://img.shields.io/github/stars/Proskynete/node-api-skeleton)](https://github.com/Proskynete/node-api-skeleton/stargazers) [![PRs welcome](https://img.shields.io/badge/PRs-welcome-green)](#CONTRIBUTING.md)
 
 <details>
   <summary>Table of contents</summary>
@@ -100,8 +99,8 @@ Make sure you have [Node.js](https://nodejs.org/) installed on your system.
 1.  **Clone the repository:**
 
     ```bash
-    git clone https://github.com/your-username/your-repository-name.git
-    cd your-repository-name
+    git clone https://github.com/Proskynete/programaci-n-backend-ciclo7.git
+    cd programaci-n-backend-ciclo7
     ```
 
 2.  **Install dependencies:**
