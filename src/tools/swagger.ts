@@ -13,7 +13,11 @@ const options: swaggerJsdoc.Options = {
       version,
     },
   },
-  apis: ["./src/routes/*.ts", "./src/models/business/*.ts"],
+  apis: [
+    "./src/routes/*.ts",
+    "./src/models/business/*.ts",
+    "./src/controllers/**/*.ts",
+  ],
 };
 
 export const swaggerSpec = swaggerJsdoc(options);

@@ -1,25 +1,7 @@
-import fs from "fs/promises";
-import path from "path";
+import { randomUUID } from "crypto";
 
 import { Item, ItemRepository } from "../models/business/item";
-
-const dbPath = path.resolve(__dirname, "../db.json");
-
-async function readItems(): Promise<Item[]> {
-  try {
-    const data = await fs.readFile(dbPath, "utf-8");
-    return JSON.parse(data);
-  } catch (error) {
-    if ((error as NodeJS.ErrnoException).code === "ENOENT") {
-      return [];
-    }
-    throw error;
-  }
-}
-
-async function writeItems(items: Item[]): Promise<void> {
-  await fs.writeFile(dbPath, JSON.stringify(items, null, 2));
-}
+import { readItems, writeItems } from "../utils/read-db";
 
 export class ItemService implements ItemRepository {
   async getAllItems(): Promise<Item[]> {
@@ -33,7 +15,7 @@ export class ItemService implements ItemRepository {
 
   async createItem(item: Omit<Item, "id">): Promise<Item> {
     const items = await readItems();
-    const newItem: Item = { ...item, id: new Date().toISOString() };
+    const newItem: Item = { ...item, id: randomUUID() };
     items.push(newItem);
     await writeItems(items);
     return newItem;
