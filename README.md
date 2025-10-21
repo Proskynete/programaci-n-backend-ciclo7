@@ -157,6 +157,7 @@ The API includes the following endpoints:
   - `POST /api/v1/item`: Create a new item.
   - `PUT /api/v1/item/:id`: Update an existing item.
   - `DELETE /api/v1/item/:id`: Delete an item.
+  - `PATCH /api/v1/item/:id/toggle`: Toggle isComplete value
 
 ### API Documentation
 
