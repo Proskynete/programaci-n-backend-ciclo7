@@ -91,31 +91,90 @@
 
 <p align="right"><a href="#top">🔝</a></p>
 
-<h2 id="how-to-use">💪  How to use</h2>
+<h2 id="how-to-use">💪 How to use</h2>
 
-You can use this repository as a template by clicking on the `Use this template` button on the top right of the repository page and select the `Create a new repository` option. This will create a new repository with the same files and history as this one.
+To get started with this project, you can use this repository as a template. Click the "Use this template" button at the top right of the repository page and select "Create a new repository." This will create a new repository with the same files and history.
 
-```bash
-# Install dependencies
-npm install
+### Prerequisites
 
-# Set up environment variables and fill in the values
-cp .env.example .env
-code .env # or vim or whatever you prefer
+Make sure you have [Node.js](https://nodejs.org/) installed on your system.
 
-# Set up coveralls repo token
-cp .coveralls.example .coveralls.yml
-code .coveralls.yml # or vim or whatever you prefer
+### Installation and Setup
 
-# Run the development server
-npm run dev
+1.  **Clone the repository:**
 
-# Production build
-npm run build
+    ```bash
+    git clone https://github.com/your-username/your-repository-name.git
+    cd your-repository-name
+    ```
 
-# Run the production server
-npm start
-```
+2.  **Install dependencies:**
+
+    ```bash
+    npm install
+    ```
+
+3.  **Set up environment variables:**
+
+    Copy the example `.env.example` file to a new `.env` file and fill in the required values.
+
+    ```bash
+    cp .env.example .env
+    ```
+
+4.  **Set up Coveralls (optional):**
+
+    If you plan to use [Coveralls](https://coveralls.io/) for code coverage reports, copy the `.coveralls.example` file to `.coveralls.yml` and add your repository token.
+
+    ```bash
+    cp .coveralls.example .coveralls.yml
+    ```
+
+### Running the Application
+
+-   **Development mode:**
+
+    To run the server in development mode with live reloading, use:
+
+    ```bash
+    npm run dev
+    ```
+
+    The server will start on the port specified in your `.env` file (default is 3000).
+
+-   **Production mode:**
+
+    To build and run the application for production, use the following commands:
+
+    ```bash
+    # Create a production build
+    npm run build
+
+    # Start the production server
+    npm start
+    ```
+
+<p align="right"><a href="#top">🔝</a></p>
+
+<h2 id="available-routes">Available Routes</h2>
+
+The API includes the following endpoints:
+
+-   **Health Check:**
+    -   `GET /health`: Checks the health status of the application.
+
+-   **Items:**
+    -   `GET /api/v1/item`: Retrieve all items.
+    -   `GET /api/v1/item/:id`: Retrieve a single item by its ID.
+    -   `POST /api/v1/item`: Create a new item.
+    -   `PUT /api/v1/item/:id`: Update an existing item.
+    -   `DELETE /api/v1/item/:id`: Delete an item.
+
+### API Documentation
+
+This project uses Swagger for API documentation. Once the server is running, you can access the documentation by navigating to `/docs` in your browser.
+
+For example, if your server is running on `http://localhost:3000`, the documentation will be available at `http://localhost:3000/docs`.
 
 <p align="right"><a href="#top">🔝</a></p>
 
