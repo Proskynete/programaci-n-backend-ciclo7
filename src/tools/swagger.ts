@@ -12,6 +12,11 @@ const options: swaggerJsdoc.Options = {
       description: "API for managing TODO items",
       version,
     },
+    servers: [
+      {
+        url: "/api/v1",
+      },
+    ],
   },
   apis: [
     "./src/routes/*.ts",

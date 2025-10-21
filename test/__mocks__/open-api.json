@@ -5,12 +5,15 @@
     "description": "Node API Skeleton",
     "version": "0.0.1"
   },
+  "servers": [
+    {
+      "url": "/api/v1"
+    }
+  ],
   "paths": {
     "/api/v1/hello": {
       "get": {
-        "tags": [
-          "Example"
-        ],
+        "tags": ["Example"],
         "responses": {
           "200": {
             "description": "First dummy route - Route example",
