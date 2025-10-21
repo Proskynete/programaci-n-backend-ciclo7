@@ -1,9 +1,9 @@
-import { HelloService } from "../../src/services/hello";
+import { ItemService } from "../../src/services/item";
 import mockResponse from "../__mocks__/hello.response.json";
 
-describe("HelloService", () => {
+describe("ItemService", () => {
   test("should return 'Hello World!'", async () => {
-    const result = await HelloService();
+    const result = await ItemService();
     expect(result).toEqual(mockResponse);
   });
 });

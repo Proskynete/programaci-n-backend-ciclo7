@@ -8,12 +8,12 @@ const options: swaggerJsdoc.Options = {
   definition: {
     openapi: "3.0.0",
     info: {
-      title: "Node API Skeleton",
-      description: "Node API Skeleton",
+      title: "TODO API",
+      description: "API for managing TODO items",
       version,
     },
   },
-  apis: ["./src/routes/*.ts", "./src/models/*.ts"],
+  apis: ["./src/routes/*.ts", "./src/models/business/*.ts"],
 };
 
 export const swaggerSpec = swaggerJsdoc(options);

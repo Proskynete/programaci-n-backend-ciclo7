@@ -1,7 +1,7 @@
 {
-  "name": "node-api-skeleton",
+  "name": "ciclo-7-todo-item-api",
   "version": "0.0.1",
-  "description": "skeleton for your node api projects",
+  "description": "A simple Todo Item API built with Node.js, Express, and TypeScript.",
   "private": true,
   "scripts": {
     "start": "node ./dist/server.js",

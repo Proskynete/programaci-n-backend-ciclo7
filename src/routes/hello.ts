@@ -1,27 +1,9 @@
-import { Router } from "express";
-
-import { HelloController } from "../controllers/hello";
+import { Router, Request, Response } from "express";
 
 const router = Router();
 
-/**
- * @openapi
- * /api/v1/hello:
- *  get:
- *    tags:
- *    - Example
- *    responses:
- *      200:
- *        description: First dummy route - Route example
- *        content:
- *          application/json:
- *            schema:
- *              type: object
- *              properties:
- *                message:
- *                  type: string
- *                  example: Hello World!
- */
-router.get("/", HelloController);
+router.get("/", (_: Request, res: Response) => {
+  res.json({ message: "Hello World!" });
+});
 
 export { router };
